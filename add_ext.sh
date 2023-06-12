@@ -2,6 +2,11 @@
 
 branch_name=$(git symbolic-ref --short HEAD)
 for file in *.py; do
+  if [[ $file == *"_"* ]]; then
+    echo "File name already contains branch name: $file"
+    exit 0
+  fi
+
   filename="${file%.*}"  # Remove the extension
   extension="${file##*.}"  # Extract the extension
   new_filename="${filename%_$branch_name}"  # Remove existing branch name, if any
