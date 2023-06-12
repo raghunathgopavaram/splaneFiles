@@ -406,7 +406,7 @@ def analyseTs(inputFile):
                     number = format(decimal.Decimal(num), ".9f")
                     numbers.append(number)
                 except decimal.InvalidOperation:
-                    print(f"Decimal Conversion failed for number: {num} at line {line} .. skipping")
+                    echo_write(f"Decimal Conversion failed for number: {num} at line {line} .. skipping")
                     continue
             if len(numbers) != 4: #if there are no 4 timestamps
                 echo_write("found no valid timestamps at line: {}".format(line)) 
