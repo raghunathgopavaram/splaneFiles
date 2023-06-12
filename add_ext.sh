@@ -14,7 +14,8 @@ for file in *.py; do
     exit 0
   else
     mv -f "$file" "${new_filename}_$branch_name.$extension" >/dev/null 2>&1
-    git add "${new_filename}_$branch_name.$extension" >/dev/null 2>&1
+    git add -A >/dev/null 2>&1
     git commit -m "Automatic renaming of files" >/dev/null 2>&1
+    rm .err.txt
   fi
 done
